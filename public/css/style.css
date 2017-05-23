@@ -1,7 +1,29 @@
+.navbar-btn {
+	float: right;
+}
+
+.container {
+	text-align: center;
+}
+
 #mainLogo {
 	max-width: 250px;
 }
 
 #mainPhoto {
 	max-width: 600px;
+	padding: 20px;
 }
+
+h1, h2, h3, h4 {
+	font-family: 'Oswald', sans-serif;
+}
+
+p {
+	font-family: 'Poppins', sans-serif;
+}
+
+button {
+	font-family: 'Poppins', sans-serif;
+}
+
