@@ -1,0 +1,27 @@
+{
+  "name": "beer-app",
+  "version": "1.0.0",
+  "description": "home brew recipe application",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lrlupfer/beer-app.git"
+  },
+  "author": "josh denison, lindsey lupfer, mary knight, curtis coddington",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lrlupfer/beer-app/issues"
+  },
+  "homepage": "https://github.com/lrlupfer/beer-app#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "express-handlebars": "^3.0.0",
+    "method-override": "^2.3.9",
+    "sequelize": "^3.30.4"
+  }
+}
