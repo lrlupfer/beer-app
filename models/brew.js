@@ -6,10 +6,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
     },
      beerType: {
-      type: DataTypes.STRING,
-      validate: {
-        ^(Ale|Lager|Amber|Stout|Porter|Other)$
-      }
+      type: DataTypes.STRING
   },  
   recipe: {
       type: DataTypes.STRING,
@@ -19,7 +16,8 @@ module.exports = function(sequelize, DataTypes) {
   },
     notes: {
       type: DataTypes.STRING,
-  },
+  }
+},
       {
       // We're saying that we want our User to have Brews
       classMethods: {
