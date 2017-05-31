@@ -1,8 +1,8 @@
 $(document).ready(function() {
   /* global moment */
 
-  // blogContainer holds all of our Brews
-  var blogContainer = $(".blog-container");
+  // brewContainer holds all of our Brews
+  var brewContainer = $(".brew-container");
   var brewCategorySelect = $("#category");
   // Click events for the edit and delete buttons
   $(document).on("click", "button.delete", handleBrewDelete);
@@ -10,7 +10,7 @@ $(document).ready(function() {
   // Variable to hold our Brews
   var brews;
 
-  // The code below handles the case where we want to get blog Brews for a specific user
+  // The code below handles the case where we want to get brew Brews for a specific user
   // Looks for a query param in the url for user_id
   var url = window.location.search;
   var userId;
@@ -30,7 +30,7 @@ $(document).ready(function() {
     if (userId) {
       userId = "/?user_id=" + userId;
     }
-    $.get("/api/Brews" + userId, function(data) {
+    $.get("/api/brews" + userId, function(data) {
       console.log("Brews", data);
       Brews = data;
       if (!Brews || !Brews.length) {
@@ -53,14 +53,14 @@ $(document).ready(function() {
     });
   }
 
-  // InitializeRows handles appending all of our constructed brew HTML inside blogContainer
+  // InitializeRows handles appending all of our constructed brew HTML inside brewContainer
   function initializeRows() {
-    blogContainer.empty();
+    brewContainer.empty();
     var BrewsToAdd = [];
     for (var i = 0; i < Brews.length; i++) {
       BrewsToAdd.push(createNewRow(Brews[i]));
     }
-    blogContainer.append(BrewsToAdd);
+    brewContainer.append(BrewsToAdd);
   }
 
   // This function constructs a brew's HTML
@@ -130,12 +130,12 @@ $(document).ready(function() {
     if (id) {
       partial = " for user #" + id;
     }
-    blogContainer.empty();
+    brewContainer.empty();
     var messageh2 = $("<h2>");
     messageh2.css({ "text-align": "center", "margin-top": "50px" });
     messageh2.html("No Brews yet" + partial + ", navigate <a href='/cms" + query +
     "'>here</a> in order to get started.");
-    blogContainer.append(messageh2);
+    brewContainer.append(messageh2);
   }
 
 });
