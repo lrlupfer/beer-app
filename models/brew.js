@@ -1,11 +1,24 @@
 module.exports = function(sequelize, DataTypes) {
+  
   var Brew = sequelize.define("Brew", {
-        body: {
-      type: DataTypes.TEXT,
+        beerName: {
+      type: DataTypes.STRING,
       allowNull: false,
-      len: [1]
     },
-    
+     beerType: {
+      type: DataTypes.STRING,
+      validate: {
+        ^(Ale|Lager|Amber|Stout|Porter|Other)$
+      }
+  },  
+  recipe: {
+      type: DataTypes.STRING,
+  },
+    rating: {
+      type: DataTypes.STRING,
+  },
+    notes: {
+      type: DataTypes.STRING,
   },
       {
       // We're saying that we want our User to have Brews
