@@ -6,6 +6,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var methodOverride = require("method-override");
 var Sequelize = require("sequelize");
+var session = require("express-session");
 
 // *** Sets up the Express App
 var app = express();
@@ -24,6 +25,10 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use(express.static(process.cwd() + "/public"));
 
 app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 // *** Override with POST having ?_method=DELETE
 app.use(methodOverride("_method"));
