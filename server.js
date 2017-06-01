@@ -30,10 +30,6 @@ app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true 
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
-app.use(passport.initialize());
-app.use(passport.session());
-
 // *** Override with POST having ?_method=DELETE
 app.use(methodOverride("_method"));
 
@@ -46,7 +42,6 @@ app.set("view engine", "handlebars");
 // *** Routes
 require("./routes/html-routes.js")(app);
 require("./routes/auth-routes.js")(app);
-require("./config/middleware/isAuthenticated.js")(app);
 require("./routes/brew-api-routes.js")(app);
 require("./routes/user-api-routes.js")(app);
 

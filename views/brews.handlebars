@@ -19,6 +19,12 @@
     <div class="col-md-3"></div>
   </div>
 
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8" id="brewsDisplay"></div>
+    <div class="col-md-2"></div>
+  </div>
+
 </div>
 
   <!-- ADD BREW MODAL -->
@@ -36,17 +42,17 @@
 
         <p>Use the form below to add a new recipe.</p>
 
-        <form class="form-horizontal">
+      <form class="form-horizontal" id="addBrew">
         <div class="form-group">
-          <label for="brewName" class="col-sm-3 control-label">Brew Name</label>
+          <label for="beerName" class="col-sm-3 control-label">Brew Name</label>
           <div class="col-sm-9">
-            <input type="name" class="form-control" id="brewName" placeholder="Get funky!">
+            <input type="name" class="form-control" id="beerName" placeholder="Get funky!">
           </div>
         </div>
         <div class="form-group">
-          <label for="brewStyle" class="col-sm-3 control-label">Brew Style</label>
+          <label for="beerType" class="col-sm-3 control-label">Brew Style</label>
           <div class="col-sm-9">
-            <select class="form-control" id="brewStyle">
+            <select class="form-control" id="beerType">
               <option>Ale</option>
               <option>Lager</option>
               <option>Amber</option>
@@ -57,22 +63,22 @@
           </div>
         </div>
         <div class="form-group">
-          <label for="brewRecipe" class="col-sm-3 control-label">Brew Recipe</label>
+          <label for="beerRecipe" class="col-sm-3 control-label">Brew Recipe</label>
           <div class="col-sm-9">
-            <textarea class="form-control" rows="5" placeholder="Enter your ingredients and brewing process here." id="brewRecipe"></textarea>
+            <textarea class="form-control" rows="5" placeholder="Enter your ingredients and brewing process here." id="beerRecipe"></textarea>
           </div>
         </div>
         <div class="form-group">
-          <label for="brewNotes" class="col-sm-3 control-label">Brew Notes</label>
+          <label for="beerNotes" class="col-sm-3 control-label">Brew Notes</label>
           <div class="col-sm-9">
-            <textarea class="form-control" rows="3" placeholder="This is an optional space for additional notes you'd like to save." id="brewNotes"></textarea>
+            <textarea class="form-control" rows="3" placeholder="This is an optional space for additional notes you'd like to save." id="beerNotes"></textarea>
           </div>
         </div>
         <div class="form-group">
-          <label for="brewRating" class="col-sm-3 control-label">Brew Rating</label>
+          <label for="beerRating" class="col-sm-3 control-label">Brew Rating</label>
           <div class="col-sm-9">
-            <select class="form-control" id="brewRating">
-              <option>10 - GOAT!</option>
+            <select class="form-control" id="beerRating">
+              <option>10</option>
               <option>9</option>
               <option>8</option>
               <option>7</option>
@@ -81,19 +87,18 @@
               <option>4</option>
               <option>3</option>
               <option>2</option>
-              <option>1 - Never again.</option>
+              <option>1</option>
             </select>
           </div>
         </div>
 
-        </form>
-
       </div>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" id="addBrew">Add my recipe</button>
+        <button type="submit" value="Submit" class="btn btn-default" id="addBrew">Add my recipe</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
+      </form>
     </div>
 
   </div>
