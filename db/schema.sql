@@ -4,9 +4,9 @@ USE brewDB;
 
 CREATE TABLE user (
 id INT NOT NULL AUTO_INCREMENT,
-  userName VARCHAR(45) NOT NULL,
-  userPass VARCHAR(45) NOT NULL,
-  userEmail VARCHAR(45) NOT NULL,
+  username VARCHAR(45) NOT NULL,
+  password VARCHAR(45) NOT NULL,
+  email VARCHAR(45) NOT NULL,
   PRIMARY KEY (id)
 );
 
