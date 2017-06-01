@@ -6,10 +6,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var methodOverride = require("method-override");
 var Sequelize = require("sequelize");
-<<<<<<< HEAD
 var passport = require("./config/passport");
-=======
->>>>>>> 6900a26b84305ed0714ccbf97f075cfb71ef975e
 var session = require("express-session");
 
 // *** Sets up the Express App
@@ -48,11 +45,8 @@ app.set("view engine", "handlebars");
 
 // *** Routes
 require("./routes/html-routes.js")(app);
-<<<<<<< HEAD
 require("./routes/auth-routes.js")(app);
-=======
 require("./config/middleware/isAuthenticated.js")(app);
->>>>>>> 6900a26b84305ed0714ccbf97f075cfb71ef975e
 require("./routes/brew-api-routes.js")(app);
 require("./routes/user-api-routes.js")(app);
 
