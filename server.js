@@ -41,6 +41,7 @@ app.set("view engine", "handlebars");
 
 // *** Routes
 require("./routes/html-routes.js")(app);
+require("./config/middleware/isAuthenticated.js")(app);
 require("./routes/brew-api-routes.js")(app);
 require("./routes/user-api-routes.js")(app);
 
