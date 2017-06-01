@@ -1,16 +1,14 @@
 $(document).ready(function() {
   // Getting references to the name inout and brew container, as well as the table body
-  var nameInput = $("#brew-name");
+  var nameInput = $("#brewName");
   var brewList = $("tbody");
   var brewContainer = $(".brew-container");
   // Adding event listeners to the form to create a new object, and the button to delete
   // an brew
   $(document).on("submit", "#brew-form", handlebrewFormSubmit);
   $(document).on("click", ".delete-brew", handleDeleteButtonPress);
-
   // Getting the intiial list of brews
   getUsers();
-
   // A function to handle what happens when the form is submitted to create a new brew
   function handleUserFormSubmit(event) {
     event.preventDefault();
@@ -25,13 +23,11 @@ $(document).ready(function() {
         .trim()
     });
   }
-
   // A function for creating an brew. Calls getbrews upon completion
   function upsertUser(brewData) {
     $.post("/api/brews", brewData)
       .then(getUsers);
   }
-
   // Function for creating a new list row for brews
   function createUserRow(brewData) {
     var newTr = $("<tr>");
@@ -43,7 +39,6 @@ $(document).ready(function() {
     newTr.append("<td><a style='cursor:pointer;color:red' class='delete-brew'>Delete brew</a></td>");
     return newTr;
   }
-
   // Function for retrieving brews and getting them ready to be rendered to the page
   function getUsers() {
     $.get("/api/brews", function(data) {
@@ -55,7 +50,6 @@ $(document).ready(function() {
       nameInput.val("");
     });
   }
-
   // A function for rendering the list of brews to the page
   function renderUserList(rows) {
     brewList.children().not(":last").remove();
@@ -68,7 +62,6 @@ $(document).ready(function() {
       renderEmpty();
     }
   }
-
   // Function for handling what to render when there are no brews
   function renderEmpty() {
     var alertDiv = $("<div>");
@@ -76,7 +69,6 @@ $(document).ready(function() {
     alertDiv.html("You must create an User before you can create a Post.");
     brewContainer.append(alertDiv);
   }
-
   // Function for handling what happens when the delete button is pressed
   function handleDeleteButtonPress() {
     var listItemData = $(this).parent("td").parent("tr").data("brew");

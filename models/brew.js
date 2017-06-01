@@ -19,7 +19,7 @@ module.exports = function(sequelize, DataTypes) {
   }
 },
       {
-      // We're saying that we want our User to have Brews
+      // User Brews
       classMethods: {
         associate: function(models) {
           // An User (foreignKey) is required or a Brew can't be made
