@@ -1,10 +1,15 @@
 
 // Requiring our models
 var db = require("../models");
+var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 // Routes
 // =============================================================
 module.exports = function(app) {
+
+  app.get("/brews", isAuthenticated, function(req, res){
+    res.render("brews", {user: req.user})
+  });
 
   // GET route for getting all of the brews
   app.get("/api/brews", function(req, res) {
