@@ -1,6 +1,6 @@
+CREATE DATABASE brewDB;
 
-
-use brewDB;
+USE brewDB;
 
 CREATE TABLE user (
 id INT NOT NULL AUTO_INCREMENT,
@@ -17,7 +17,6 @@ id INT NOT NULL AUTO_INCREMENT,
   beerType VARCHAR(45) NOT NULL,
   recipe TEXT NOT NULL,
   rating INTEGER,
-  notes TEXT
-
+  notes TEXT,
   PRIMARY KEY (id)
 );
