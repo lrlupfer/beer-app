@@ -22,7 +22,7 @@ $(document).ready(function() {
   }
 
   // Getting the users, and their brews
-  getUsers();
+  // getUsers();
   // A function for handling what happens when the form to create a new brew is submitted
   function handleFormSubmit(event) { 
     event.preventDefault();
@@ -106,22 +106,22 @@ $(document).ready(function() {
   // Function to either render a list of users, 
    // or if there are none, direct the user to the page
   // to create an user first
-  function renderUserList(data) {
-    if (!data.length) {
-      window.location.href = "/";
-    }
-    $(".hidden").removeClass("hidden");
-    var rowsToAdd = [];
-    for (var i = 0; i < data.length; i++) {
-      rowsToAdd.push(createUserRow(data[i]));
-    }
-    console.log(rowsToAdd);
-    console.log(userSelect);
-    // FIXME - not sure if this is needed? 
-    //userSelect.empty();
-    //userSelect.append(rowsToAdd);
-    //userSelect.val(userId);
-  }
+  // function renderUserList(data) {
+  //   if (!data.length) {
+  //     window.location.href = "/";
+  //   }
+  //   $(".hidden").removeClass("hidden");
+  //   var rowsToAdd = [];
+  //   for (var i = 0; i < data.length; i++) {
+  //     rowsToAdd.push(createUserRow(data[i]));
+  //   }
+  //   console.log(rowsToAdd);
+  //   console.log(userSelect);
+  //   // FIXME - not sure if this is needed? 
+  //   //userSelect.empty();
+  //   //userSelect.append(rowsToAdd);
+  //   //userSelect.val(userId);
+  // }
 
   // Creates the user options in the dropdown
   function createUserRow(user) {
