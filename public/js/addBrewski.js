@@ -1,18 +1,33 @@
 $(document).ready(function() {
+<<<<<<< HEAD
   
   var brewsDisplay = $("#addBrew");
   var userSelect = $("#user");
   
+=======
+  // Getting jQuery references to the brew data, form, and user select
+  var brewData = {
+          beerName: $("#beerName"),
+          beerType: $("#beerType"),
+          recipe: $("#beerRecipe"),
+          rating: $("#beerRating"),
+          notes: $("#beerNotes")
+      };
+  var brewskiForm = $("#addForm");
+  var userSelect = $("#user");
+  // Adding an event listener for when the form is submitted
+  $(brewskiForm).on("submit", handleFormSubmit);
+>>>>>>> 09a9d93d4859335b7d3dcee95d57a66003d80a56
   // Gets the part of the url that comes after the "?" (which we have if we're updating a brew)
   var url = window.location.search;
   var brewId;
   var userId;
   // Sets a flag for whether or not we're updating a brew to be false initially
   var updating = false;
-
+console.log(brewData);
   // If we have this section in our url, we pull out the brew id from the url
   // In '?brew_id=1', brewId is 1
-  if (url.indexOf("?brews_id=") !== -1) {
+  if (url.indexOf("?brew_id=") !== -1) {
     brewId = url.split("=")[1];
     getBrewData(brewId, "brew");
   }
@@ -38,15 +53,38 @@ $(document).ready(function() {
 
     //get the brew
     // Wont submit the brew if we are missing a beer name or user
+<<<<<<< HEAD
     if (!brewData.beerName) {
       alert("Need a beer name"); //FIXME, put error message on page.
+=======
+    if (!brewData.beerName.val().trim() || !userSelect.val()) {
+>>>>>>> 09a9d93d4859335b7d3dcee95d57a66003d80a56
       return;
     } 
     console.log("got it: ");
     console.log(brewData);
     // Constructing a newBrew object to hand to the database
+<<<<<<< HEAD
     var newBrew = brewData;
     newBrew.UserId = userSelect.data("uid");
+=======
+    var newBrew = {
+      beerName: beerName
+        .val()
+        .trim(),
+      beerType: beerType
+        .val(),
+      recipe: beerRecipe
+        .val()
+        .trim(),
+      rating: beerRating
+        .val(),
+      notes: beerNotes
+        .val()
+        .trim(),
+      UserId: userSelect.val()
+    };
+>>>>>>> 09a9d93d4859335b7d3dcee95d57a66003d80a56
 
     // If we're updating a brew run updateBrew to update a brew
     // Otherwise run submitBrew to create a whole new brew
@@ -85,19 +123,18 @@ $(document).ready(function() {
     }
     $.get(queryUrl, function(data) {
       if (data) {
-        console.log(data.userId || data.id);
-        // If this brew exists, prefill our cms forms with its data
         beerName.val(data.beerName);
         beerType.val(data.beerType);
-        beerRecipe.val(data.recipe);
-        beerRating.val(data.rating);
-        beerNotes.val(data.notes);
-        userId = data.userId || data.id;
+        beerRecipe.val(data.beerRecipe);
+        beerRating.val(data.beerRating);
+        beerNotes.val(data.beerNotes);
+        userId = data.UserId || data.id;
         // If we have a brew with this id, set a flag for us to know to update the brew
         // when we hit submit
         updating = true;
       }
     });
+    console.log(brewData);
   }
   // A function to get users and then render our list of users
   function getUsers() {
@@ -115,12 +152,20 @@ $(document).ready(function() {
     for (var i = 0; i < data.length; i++) {
       rowsToAdd.push(createUserRow(data[i]));
     }
+<<<<<<< HEAD
     console.log(rowsToAdd);
     console.log(userSelect);
     // FIXME - not sure if this is needed? 
     //userSelect.empty();
     //userSelect.append(rowsToAdd);
     //userSelect.val(userId);
+=======
+    userSelect.empty();
+    //console.log(rowsToAdd);
+    console.log(userSelect + "userSelect");
+    userSelect.append(rowsToAdd);
+    userSelect.val(userId);
+>>>>>>> 09a9d93d4859335b7d3dcee95d57a66003d80a56
   }
 
   // Creates the user options in the dropdown
