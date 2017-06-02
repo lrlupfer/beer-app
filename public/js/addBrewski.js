@@ -117,10 +117,6 @@ $(document).ready(function() {
   //   }
   //   console.log(rowsToAdd);
   //   console.log(userSelect);
-  //   // FIXME - not sure if this is needed? 
-  //   //userSelect.empty();
-  //   //userSelect.append(rowsToAdd);
-  //   //userSelect.val(userId);
   // }
 
   // Creates the user options in the dropdown
