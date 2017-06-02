@@ -1,10 +1,11 @@
 {
   "development": {
     "username": "root",
-    "password": "44RvXf2pAhfoHWMs",
+    "password": "root",
     "database": "brewDB",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "port":"3336"
   },
   "test": {
     "username": "root",
