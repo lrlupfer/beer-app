@@ -2,7 +2,7 @@ $(document).ready(function() {
   /* global moment */
 
   // brewContainer holds all of our Brews
-  var brewContainer = $(".brew-container");
+  var brewContainer = $("#brewsDisplay");
   var brewCategorySelect = $("#category");
   // Click events for the edit and delete buttons
   $(document).on("click", "button.delete", handleBrewDelete);
@@ -66,7 +66,7 @@ $(document).ready(function() {
   // This function constructs a brew's HTML
   function createNewRow(brew) {
     var formattedDate = new Date(brew.createdAt);
-    formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
+   // formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
     var newBrewPanel = $("<div>");
     newBrewPanel.addClass("panel panel-default");
     var newBrewPanelHeading = $("<div>");
@@ -80,7 +80,7 @@ $(document).ready(function() {
     var newBrewTitle = $("<h2>");
     var newBrewDate = $("<small>");
     var newBrewuser = $("<h5>");
-    newBrewuser.text("Written by: " + brew.user.name);
+    newBrewuser.text("Written by: " + brew.user);
     newBrewuser.css({
       float: "right",
       color: "blue",
@@ -90,7 +90,7 @@ $(document).ready(function() {
     var newBrewPanelBody = $("<div>");
     newBrewPanelBody.addClass("panel-body");
     var newBrewBody = $("<p>");
-    newBrewTitle.text(brew.title + " ");
+    newBrewTitle.text(brew.beerName + " ");
     newBrewBody.text(brew.body);
     newBrewDate.text(formattedDate);
     newBrewTitle.append(newBrewDate);
@@ -120,7 +120,7 @@ $(document).ready(function() {
       .parent()
       .parent()
       .data("brew");
-    window.location.href = "/cms?brew_id=" + currentBrew.id;
+    window.location.href = "/addBrewski?brew_id=" + currentBrew.id;
   }
 
   // This function displays a messgae when there are no Brews
