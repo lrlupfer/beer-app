@@ -12,7 +12,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
   },
     rating: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
   },
     notes: {
       type: DataTypes.STRING,

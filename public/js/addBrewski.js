@@ -7,10 +7,10 @@ $(document).ready(function() {
           rating: $("#beerRating").val().trim(),
           notes: $("#beerNotes").val().trim()
       };
-  var cmsForm = $("#cms");
+  var brewsDisplay = $("#brewsDisplay");
   var userSelect = $("#user");
   // Adding an event listener for when the form is submitted
-  $(cmsForm).on("submit", handleFormSubmit);
+  $(brewsDisplay).on("submit", handleFormSubmit);
   // Gets the part of the url that comes after the "?" (which we have if we're updating a brew)
   var url = window.location.search;
   var brewId;
@@ -20,7 +20,7 @@ $(document).ready(function() {
 
   // If we have this section in our url, we pull out the brew id from the url
   // In '?brew_id=1', brewId is 1
-  if (url.indexOf("?brew_id=") !== -1) {
+  if (url.indexOf("?brews_id=") !== -1) {
     brewId = url.split("=")[1];
     getBrewData(brewId, "brew");
   }
@@ -85,9 +85,9 @@ $(document).ready(function() {
         // If this brew exists, prefill our cms forms with its data
         beerName.val(data.beerName);
         beerType.val(data.beerType);
-        beerRecipe.val(data.beerRecipe);
-        beerRating.val(data.beerRating);
-        beerNotes.val(data.beerNotes);
+        beerRecipe.val(data.recipe);
+        beerRating.val(data.rating);
+        beerNotes.val(data.notes);
         userId = data.userId || data.id;
         // If we have a brew with this id, set a flag for us to know to update the brew
         // when we hit submit
