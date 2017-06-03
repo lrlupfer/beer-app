@@ -4,7 +4,7 @@
 <div class="row">
   <div class="col-md-2"></div>
   <div class="col-md-8">
-  	<img src="images/zenbrew_logo.png" class="img-responsive center-block" id="mainLogo">
+    <img src="images/zenbrew_logo.png" class="img-responsive center-block" id="mainLogo">
   </div>
   <div class="col-md-2"></div>
 </div>
@@ -12,7 +12,7 @@
 <div class="row">
   <div class="col-md-2"></div>
   <div class="col-md-8">
-	<img src="images/homebrew-zenbrew.jpg" class="img-circle img-responsive center-block" id="mainPhoto">
+  <img src="images/homebrew-zenbrew.jpg" class="img-circle img-responsive center-block" id="mainPhoto">
   </div>
   <div class="col-md-2"></div>
 </div>
@@ -20,19 +20,30 @@
 <div class="row">
   <div class="col-md-3"></div>
   <div class="col-md-6">
-	<h1>WELCOME TO ZENBREW</h1>
-	<h4>A place for homebrewers to save and organize their recipes</h4>
-	<br>
+  <h1>WELCOME TO ZENBREW</h1>
+  <h4>A place for homebrewers to save and organize their recipes</h4>
+  <br>
 
-	<p><button type="button" class="btn-warning btn-lg btn-info" data-toggle="modal" data-target="#signUpModal">Get started now!</button></p>
-	<br>
+  <p><button type="button" class="btn-warning btn-lg btn-info" data-toggle="modal" data-target="#signUpModal">Get started now!</button></p>
+  <br>
 
-	<p>Nose shows some clove and banana bread, with a soft wheat-husk background, nutty yeast, hints of citrus and a brush of floral. In the mouth, the beer is smooth on the palate, light and uplifting. The palate is piqued by crisp carbonation and a watery, lemony edge that segues into a slightly grassy wheat twang, with very soft phenolic image clover-like and thin banana flavors. Pithy floral, nutty yeast, gummy notes. Hops are non-existent, but somewhat expected for the style. Malt characters are weak, lending just a hint of residual sweetness. The finish on this brew is bone dry, with a mouthful of rough and husky tannins and yeast flavors that, unfortunately, linger long past their welcome.</p><br>
-
+  <p>Being passionate about homebrewing is a breeze, but staying organized can be a challenge. Instead of fumbling with complicated spreadsheets or paying big bucks for fancy software, try our website for free! (That's about how much you've budgeted for logging your recipes, right?) Create an account, save your brew recipes, and come back anytime to see how far you've come as a brewer. You won't regret it!</p><br><br>
+  </div>
   <div class="col-md-3"></div>
 </div>
 
-	<!-- SIGN UP MODAL -->
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6 share-buttons">
+    <div class="fb-share-button" data-href="https://whispering-refuge-64219.herokuapp.com/" data-layout="button" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwhispering-refuge-64219.herokuapp.com%2F&amp;src=sdkpreparse">Share</a></div>
+    <a class="twitter-share-button"
+    href="https://twitter.com/intent/tweet?text=Check%20out%20ZenBrew,%20a%20cool%20site%20for%20homebrewers!"><link rel="canonical" href="https://whispering-refuge-64219.herokuapp.com/">
+    Tweet</a><br><br>
+  </div>
+  <div class="col-md-3"></div>
+</div>
+
+  <!-- SIGN UP MODAL -->
   <div id="signUpModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
@@ -48,29 +59,29 @@
         <p>Use the form below to sign up for ZenBrew.</p>
 
         <form class="signUp form-horizontal">
-        	<div class="form-group">
-    			<label for="signUpName" class="col-sm-2 control-label">Name</label>
-    			<div class="col-sm-10">
-      			<input type="signUpName" class="form-control" id="signUpName" placeholder="Name">
-    			</div>
-  			</div>
-  			<div class="form-group">
-    			<label for="signUpEmail" class="col-sm-2 control-label">Email</label>
-    			<div class="col-sm-10">
-      			<input type="email" class="form-control" id="signUpEmail" placeholder="Email">
-    			</div>
-  			</div>
-  			<div class="form-group">
-    			<label for="signUpPassword" class="col-sm-2 control-label">Password</label>
-    			<div class="col-sm-10">
-      			<input type="password" class="form-control" id="signUpPassword" placeholder="Password">
-    			</div>
-  			</div>
-  		</form>
-  	  </div>
+          <div class="form-group">
+          <label for="signUpName" class="col-sm-2 control-label">Name</label>
+          <div class="col-sm-10">
+            <input type="signUpName" class="form-control" id="signUpName" placeholder="Name">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="signUpEmail" class="col-sm-2 control-label">Email</label>
+          <div class="col-sm-10">
+            <input type="email" class="form-control" id="signUpEmail" placeholder="Email">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="signUpPassword" class="col-sm-2 control-label">Password</label>
+          <div class="col-sm-10">
+            <input type="password" class="form-control" id="signUpPassword" placeholder="Password">
+          </div>
+        </div>
+      </form>
+      </div>
 
       <div class="modal-footer">
-      	<button type="button" class="btn-create btn btn-default">Create my account</button>
+        <button type="button" class="btn-create btn btn-default">Create my account</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">Nevermind</button>
       </div>
     </div>
@@ -78,7 +89,7 @@
   </div>
   </div>
 
-	<!-- LOGIN MODAL -->
+  <!-- LOGIN MODAL -->
   <div id="loginModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
@@ -94,23 +105,23 @@
         <p>Use the form below to log in to ZenBrew using the email address and password associated with your account.</p>
 
         <form class="login form-horizontal">
-  			<div class="form-group">
-    			<label for="loginEmail" class="col-sm-2 control-label">Email</label>
-    			<div class="col-sm-10">
-      			<input type="email" class="form-control" id="loginEmail" placeholder="Email">
-    			</div>
-  			</div>
-  			<div class="form-group">
-    			<label for="loginPassword" class="col-sm-2 control-label">Password</label>
-    			<div class="col-sm-10">
-      			<input type="password" class="form-control" id="loginPassword" placeholder="Password">
-    			</div>
-  			</div>
-  		</form>
-  	  </div>
+        <div class="form-group">
+          <label for="loginEmail" class="col-sm-2 control-label">Email</label>
+          <div class="col-sm-10">
+            <input type="email" class="form-control" id="loginEmail" placeholder="Email">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="loginPassword" class="col-sm-2 control-label">Password</label>
+          <div class="col-sm-10">
+            <input type="password" class="form-control" id="loginPassword" placeholder="Password">
+          </div>
+        </div>
+      </form>
+      </div>
 
       <div class="modal-footer">
-      	<button type="button" class="btn-login btn btn-default">Log me in</button>
+        <button type="button" class="btn-login btn btn-default">Log me in</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>

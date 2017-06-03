@@ -32,3 +32,14 @@ button {
 	float: left;
 }
 
+.twitter-share-button {
+	margin-bottom: -5px;
+}
+
+.share-buttons {
+	display: inline;
+}
+
+.brewsDisplay {
+	text-align: center;
+}
