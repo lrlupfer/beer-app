@@ -65,7 +65,7 @@ $(document).ready(function() {
 
   // This function constructs a brew's HTML
   function createNewRow(brew) {
-    var formattedDate = new Date(brew.createdAt);
+   // var formattedDate = new Date(brew.createdAt);
    // formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
     var newBrewPanel = $("<div>");
     newBrewPanel.addClass("panel panel-default");
@@ -73,31 +73,31 @@ $(document).ready(function() {
     newBrewPanelHeading.addClass("panel-heading");
     var deleteBtn = $("<button>");
     deleteBtn.text("x");
-    deleteBtn.addClass("delete btn btn-danger");
+    deleteBtn.addClass("delete btn btn-warning");
     var editBtn = $("<button>");
     editBtn.text("EDIT");
-    editBtn.addClass("edit btn btn-info");
+    editBtn.addClass("edit btn btn-success");
     var newBrewTitle = $("<h2>");
     var newBrewDate = $("<small>");
-    var newBrewuser = $("<h5>");
-    newBrewuser.text("Written by: " + brew.user);
-    newBrewuser.css({
-      float: "right",
-      color: "blue",
-      "margin-top":
-      "-10px"
-    });
+    //var newBrewuser = $("<h5>");
+     //newBrewuser.text("Written by: " + brew.user);
+   // newBrewuser.css({
+    //  float: "right",
+    //  color: "blue",
+     // "margin-top":
+    //  "-10px"
+    //});
     var newBrewPanelBody = $("<div>");
     newBrewPanelBody.addClass("panel-body");
     var newBrewBody = $("<p>");
     newBrewTitle.text(brew.beerName + " ");
     newBrewBody.text(brew.body);
-    newBrewDate.text(formattedDate);
+    //newBrewDate.text(formattedDate);
     newBrewTitle.append(newBrewDate);
     newBrewPanelHeading.append(deleteBtn);
     newBrewPanelHeading.append(editBtn);
     newBrewPanelHeading.append(newBrewTitle);
-    newBrewPanelHeading.append(newBrewuser);
+  //  newBrewPanelHeading.append(newBrewuser);
     newBrewPanelBody.append(newBrewBody);
     newBrewPanel.append(newBrewPanelHeading);
     newBrewPanel.append(newBrewPanelBody);
