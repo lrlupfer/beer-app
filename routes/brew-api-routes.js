@@ -45,7 +45,12 @@ module.exports = function(app) {
 
   // POST route for saving a new brew
   app.post("/api/brews", function(req, res) {
-    db.Brew.create(req.body).then(function(dbBrew) {
+    var newBrew = req.body;
+    newBrew.UserId = req.user.id;
+
+    console.log(newBrew);
+    
+    db.Brew.create(newBrew).then(function(dbBrew) {
       res.json(dbBrew);
     });
   });
