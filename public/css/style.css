@@ -43,3 +43,9 @@ button {
 .brewsDisplay {
 	text-align: center;
 }
+
+@media only screen and (max-width: 768px) {
+	#mainPhoto {
+		max-width: 400px;
+	}
+}
