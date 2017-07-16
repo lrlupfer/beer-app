@@ -22,7 +22,7 @@ $(document).ready(function() {
   }
 
   // Getting the users, and their brews
-  getUsers(); // THIS IS WHAT BROKE THE DISPLAY, FIX UNDER GET USERS FUNCTION
+  // getUsers(); // THIS IS WHAT BROKE THE DISPLAY, FIX UNDER GET USERS FUNCTION
   // A function for handling what happens when the form to create a new brew is submitted
   function handleFormSubmit(event) { 
     event.preventDefault();
