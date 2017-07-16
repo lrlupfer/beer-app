@@ -22,7 +22,7 @@ $(document).ready(function() {
   }
 
   // Getting the users, and their brews
-  // getUsers();
+  getUsers(); // THIS IS WHAT BROKE THE DISPLAY, FIX UNDER GET USERS FUNCTION
   // A function for handling what happens when the form to create a new brew is submitted
   function handleFormSubmit(event) { 
     event.preventDefault();
@@ -31,6 +31,9 @@ $(document).ready(function() {
     var brewData = {
           beerName: $("#beerName").val().trim(),
           beerType: $("#beerType").val().trim(),
+          batchSize: $("#batchSize").val().trim(),
+          boilTime: $("#boilTime").val().trim(),
+          ingredients: $("#ingredients").val().trim(),
           recipe: $("#beerRecipe").val().trim(),
           rating: $("#beerRating").val().trim(),
           notes: $("#beerNotes").val().trim()
@@ -90,6 +93,9 @@ $(document).ready(function() {
         beerName.val(data.beerName);
         beerType.val(data.beerType);
         beerRecipe.val(data.recipe);
+        batchSize.val(data.batchSize);
+        boilTime.val(data.boilTime);
+        ingredients.val(data.ingredients);
         beerRating.val(data.rating);
         beerNotes.val(data.notes);
         userId = data.userId || data.id;

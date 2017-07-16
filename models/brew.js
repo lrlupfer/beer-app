@@ -7,7 +7,16 @@ module.exports = function(sequelize, DataTypes) {
       },
       beerType: {
           type: DataTypes.STRING
-      },  
+      },
+      batchSize: {
+          type: DataTypes.INTEGER
+      },
+      boilTime: {
+          type: DataTypes.INTEGER
+      },
+      ingredients: {
+          type: DataTypes.STRING
+      },
       recipe: {
           type: DataTypes.STRING
       },
