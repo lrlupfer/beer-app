@@ -73,24 +73,23 @@ $(document).ready(function() {
     newBrewPanelHeading.addClass("panel-heading");
     var deleteBtn = $("<button>");
     deleteBtn.text("Delete");
-    deleteBtn.addClass("delete btn btn-warning");
+    deleteBtn.addClass("delete btn btn-danger btn-sm");
     var editBtn = $("<button>");
     editBtn.text("Edit");
-    editBtn.addClass("edit btn btn-success");
+    editBtn.addClass("edit btn btn-warning btn-sm");
     var newBrewTitle = $("<h2>");
-    var newBrewDate = $("<small>");
     var newBrewPanelBody = $("<div>");
     newBrewPanelBody.addClass("panel-body");
-    var newBrewBody = $("<p>");
+    var newBrewBody = $("<div>");
     newBrewTitle.text(brew.beerName + " | " + brew.beerType + " | " + brew.rating + "/10");
-    newBrewBody.text("Batch size: " + brew.batchSize + " gallons" + "Boil time: " + brew.boilTime + " minutes");
-    newBrewPanelBody.append(editBtn);
-    newBrewPanelBody.append(deleteBtn);
+    newBrewBody.html("Batch size: " + brew.batchSize + " gallons" + "<br>" + "Boil time: " + brew.boilTime + " minutes"
+      + "<br>" + "Ingredients: " + brew.ingredients + "<br>" + "Recipe: " + brew.recipe + "<br>Notes: " + brew.notes);
     newBrewPanelHeading.append(newBrewTitle);
     newBrewPanelBody.append(newBrewBody);
+    newBrewPanelBody.append(editBtn);
+    newBrewPanelBody.append(deleteBtn);
     newBrewPanel.append(newBrewPanelHeading);
     newBrewPanel.append(newBrewPanelBody);
-    // newBrewPanel.data("brew", brew);
     return newBrewPanel;
   }
 
