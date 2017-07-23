@@ -11,30 +11,18 @@ $(document).ready(function() {
   var brews;
 
   // The code below handles the case where we want to get brew Brews for a specific user
-  // Looks for a query param in the url for user_id
-  var url = window.location.search;
-  var userId;
-  if (url.indexOf("?user_id=") !== -1) {
-    userId = url.split("=")[1];
-    getBrews(userId);
-  }
-  // If there's no userId we just get all Brews as usual
-  else {
-    getBrews();
-  }
+  var userId = $("#brewsContainer").data("uid"); 
+  getBrews(userId);
 
 
   // This function grabs Brews from the database and updates the view
-  function getBrews(user) {
-    userId = user || "";
-    if (userId) {
-      userId = "/?user_id=" + userId;
-    }
-    $.get("/api/brews" + userId, function(data) {
+  function getBrews(userid) {
+
+    $.get("/api/userbrews/" + userId, function(data) {
       console.log("Brews", data);
       Brews = data;
       if (!Brews || !Brews.length) {
-        displayEmpty(user);
+        displayEmpty(userid);
       }
       else {
         initializeRows();
@@ -124,6 +112,50 @@ $(document).ready(function() {
     messageh2.html("No Brews yet" + partial + ", navigate <a href='/cms" + query +
     "'>here</a> in order to get started.");
     brewContainer.append(messageh2);
+  }
+
+  var brewsDisplay = $("#addBrew");
+
+  function handleFormSubmit(event) { 
+    event.preventDefault();
+
+    // Getting jQuery references to the brew data, form, and user select
+    var brewData = {
+          beerName: $("#beerName").val().trim(),
+          beerType: $("#beerType").val().trim(),
+          batchSize: $("#batchSize").val().trim(),
+          boilTime: $("#boilTime").val().trim(),
+          ingredients: $("#ingredients").val().trim(),
+          recipe: $("#beerRecipe").val().trim(),
+          rating: $("#beerRating").val().trim(),
+          notes: $("#beerNotes").val().trim()
+    };
+
+    //get the brew
+    // Wont submit the brew if we are missing a beer name or user
+    if (!brewData.beerName) {
+      alert("Need a beer name"); //FIXME, put error message on page.
+      return;
+    } 
+    console.log("got it: ");
+    console.log(brewData);
+    // Constructing a newBrew object to hand to the database
+    var newBrew = brewData;
+    newBrew.UserId = $("#brewsContainer").data("uid"); 
+
+    // If we're updating a brew run updateBrew to update a brew
+    // Otherwise run submitBrew to create a whole new brew
+    submitBrew(newBrew);
+  }
+
+  // Adding an event listener for when the form is submitted
+  brewsDisplay.on("click", handleFormSubmit);
+
+  // Submits a new brew and brings user to brews page upon completion
+  function submitBrew(brew) {
+    $.post("/api/brews", brew, function() {
+      window.location.href = "/brews";
+    });
   }
 
 });

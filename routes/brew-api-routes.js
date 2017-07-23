@@ -29,9 +29,21 @@ module.exports = function(app) {
     //add an "include" property in our findOne query
     //set the value to an array of the models to include in a left outer join
     // db.User
-    db.Brew.findOne({
+    db.Brew.findAll({
       where: {
         id: req.params.id
+      },
+      include: [db.User]
+    }).then(function(dbBrew) {
+      res.json(dbBrew);
+    });
+  });
+
+   // Get rotue for retrieving a single user's brews
+  app.get("/api/userbrews/:id", function(req, res) {
+    db.Brew.findAll({
+      where: {
+        UserId: req.params.id
       },
       include: [db.User]
     }).then(function(dbBrew) {
@@ -42,7 +54,9 @@ module.exports = function(app) {
   // POST route for saving a new brew
   app.post("/api/brews", function(req, res) {
     
-    db.Brew.create(newBrew).then(function(dbBrew) {
+    console.log(req.body);
+
+    db.Brew.create(req.body).then(function(dbBrew) {
       res.json(dbBrew);
     });
   });
