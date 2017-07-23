@@ -7,15 +7,11 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
 // =============================================================
 module.exports = function(app) {
 
-  app.get("/brews", isAuthenticated, function(req, res){
-    res.render("brews", {user: req.user})
-  });
-
   // GET route for getting all of the brews
   app.get("/api/brews", function(req, res) {
     var query = {};
-    if (req.query.user_id) {
-      query.UserId = req.query.user_id;
+    if (req.query.UserId) {
+      query.UserId = req.query.UserId;
     }
     // Here we add an "include" property to our options in our findAll query
     // set the value to an array of the models to include in a left outer join
@@ -45,10 +41,6 @@ module.exports = function(app) {
 
   // POST route for saving a new brew
   app.post("/api/brews", function(req, res) {
-    var newBrew = req.body;
-    newBrew.UserId = req.user.id;
-
-    console.log(newBrew);
     
     db.Brew.create(newBrew).then(function(dbBrew) {
       res.json(dbBrew);

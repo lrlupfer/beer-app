@@ -8,6 +8,7 @@ var methodOverride = require("method-override");
 var Sequelize = require("sequelize");
 var passport = require("./config/passport");
 var session = require("express-session");
+var chart = require("chart.js");
 
 // *** Sets up the Express App
 var app = express();
