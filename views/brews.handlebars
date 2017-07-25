@@ -14,8 +14,8 @@
     <div class="col-md-3"></div>
     <div class="col-md-6"><br><br>
     <p>
-      <button type="button" class="btn-warning btn-lg btn-info" data-toggle="modal" data-target="#addBrewModal">Add a new brew</button>
-      <button type="button" class="btn-warning btn-lg btn-info" data-toggle="modal" data-target="#userStatsModal">View my brew stats</button>
+      <button type="button" class="btn-warning btn-lg btn-info" data-toggle="modal" data-target="#addBrewModal" onclick="console.log('hi');">Add a new brew</button>
+      <button type="button" class="btn-warning btn-lg btn-info btn-stats" data-toggle="modal" data-target="#userStatsModal">View my brew stats</button>
     </p><br>
     <h1>MY BREWS</h1>
     <div class="col-md-3"></div>
@@ -23,7 +23,7 @@
 
   <div class="row">
     <div class="col-md-2"></div>
-    <div class="col-md-8" id="brewsDisplay"></div>
+    <div class="col-md-8 center-block" id="brewsDisplay"></div>
     <div class="col-md-2"></div>
   </div>
 
@@ -138,66 +138,9 @@
       <div class="modal-body">
 
         <p>Here's some interesting data on your homebrewing history!</p>
-        
-        <canvas id="myChart" width="200" height="200"></canvas>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
-$(document).ready(function() {
+        <canvas id="myChart" width="150" height="150"></canvas>
 
-  $.ajax({
-    url : "http://localhost:8080/api/brews", // do I need the localhost part?
-    type : "GET",
-    success : function(data) {
-      console.log(data);
-
-      var ctx = $("#myChart");
-
-      var data = {
-        labels: ["Ale", "Lager", "Amber", "Stout", "Porter", "Other"],
-        datasets: [
-          {
-            label: "Key",
-            data: brewType,
-            backgroundColor: [
-              "#DEB887",
-              "#A9A9A9",
-              "#DC143C",
-              "#F4A460",
-              "#2E8B57",
-              "#CDA776"]
-          }
-        ]
-      };
-
-      var options = {
-        title: {
-          display: true,
-          position: "top",
-          text: "Your Brews By Style",
-          fontSize: 18,
-          fontColor: "#111"
-        },
-        legend: {
-          display: true,
-          position: "bottom"
-        }
-      };
-
-      var chart = new Chart(ctx, {
-        type: "doughnut",
-        data: data,
-        options: options
-      });
-
-    },
-    error: function(data) {
-      console.log(data);
-    }
-  });
-
-});
-
-</script>
       </div>
 
       <div class="modal-footer">

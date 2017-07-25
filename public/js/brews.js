@@ -34,7 +34,7 @@ $(document).ready(function() {
   function deleteBrew(id) {
     $.ajax({
       method: "DELETE",
-      url: "/api/Brews/" + id
+      url: "/api/brews/" + id
     })
     .done(function() {
       getBrews(brewCategorySelect.val());
@@ -55,7 +55,7 @@ $(document).ready(function() {
   function createNewRow(brew) {
    // var formattedDate = new Date(brew.createdAt);
    // formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
-    var newBrewPanel = $("<div>");
+    var newBrewPanel = $("<div class='brew-panel' data-id='"+brew.id+"'>");
     newBrewPanel.addClass("panel panel-default");
     var newBrewPanelHeading = $("<div>");
     newBrewPanelHeading.addClass("panel-heading");
@@ -83,35 +83,26 @@ $(document).ready(function() {
 
   // This function figures out which brew we want to delete and then calls deletebrew
   function handleBrewDelete() {
-    var currentBrew = $(this)
-      .parent()
-      .parent()
-      .data("brew");
-    deleteBrew(currentBrew.id);
+    var currentBrew = $(this).parents(".brew-panel").data("id");
+    deleteBrew(currentBrew);
   }
 
   // This function figures out which brew we want to edit and takes it to the appropriate url
   function handleBrewEdit() {
-    var currentBrew = $(this)
-      .parent()
-      .parent()
-      .data("brew");
-    window.location.href = "/addBrewski?brew_id=" + currentBrew.id;
+    var currentBrew = $(this).parents(".brew-panel").data("id");
+    editBrew(currentBrew);
+  }
+
+  // This function
+  function editBrew(id) {
+    console.log(id);
   }
 
   // This function displays a messgae when there are no Brews
   function displayEmpty(id) {
-    var query = window.location.search;
-    var partial = "";
-    if (id) {
-      partial = " for user #" + id;
-    }
-    brewContainer.empty();
-    var messageh2 = $("<h2>");
-    messageh2.css({ "text-align": "center", "margin-top": "50px" });
-    messageh2.html("No Brews yet" + partial + ", navigate <a href='/cms" + query +
-    "'>here</a> in order to get started.");
-    brewContainer.append(messageh2);
+    var noBrewsYet = $("<p>");
+    noBrewsYet.text("Click above to get started!");
+    newBrewPanelBody.append(noBrewsYet);
   }
 
   var brewsDisplay = $("#addBrew");
